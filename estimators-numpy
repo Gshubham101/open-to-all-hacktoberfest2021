@@ -1,0 +1,12 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+## train and split your data BEFORE estimating
+# Try different numbers of estimators (trees)... (no cross-validation)
+np.random.seed(42)
+for i in range(10, 100, 10):
+    print(f"Trying model with {i} estimators...")
+    model = RandomForestClassifier(n_estimators=i).fit(X_train, y_train)
+    print(f"Model accuracy on test set: {model.score(X_test, y_test) * 100}%")
+    print("")
